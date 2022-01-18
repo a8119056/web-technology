@@ -19,13 +19,13 @@
                 id = "1Nq8hbrDXfKIksrEuFYLasmYuwBlIVGpgS7EaMyaq0kM",
                 sheet = "フォームの回答%201",
                 key = "AIzaSyCs_4DjHyxYoFIFptkXE0lk4Vx4AxPISCQ"
-            )
+            );
 
             await fetch(uri)
                 .then(response => response.text())
                 .then(data => {
                     result = JSON.parse(data).values;
-                })
+                });
 
             let dataHash = {};
 
@@ -70,7 +70,7 @@
                     borderWidth: 1.0,
                     borderColor: "rgba(33, 37, 41, 1.0)"
                 }
-            }
+            };
 
             const optionsHistFrame = {
                 barPercentage: 1.0,
@@ -95,7 +95,7 @@
                     },
                 },
                 plugins: plugins
-            }
+            };
 
             // ヒストグラム
 
@@ -157,7 +157,7 @@
                     borderWidth: 1.0,
                     data: femaleHeightFrequencies
                 }]
-            }
+            };
 
             const dataSleep = {
                 labels: sleepRanks,
@@ -196,7 +196,7 @@
                     borderWidth: 1.0,
                     data: femaleTemperatureFrequencies
                 }]
-            }
+            };
 
             let ageSubtitle = createSubtitleHist([...dataHash["年齢 (歳)"]]);
             let heightAllSubtitle = createSubtitleHist([...dataHash["身長 (cm)"]]);
@@ -223,26 +223,31 @@
                 data: dataAge,
                 options: optionsAge
             };
+
             const configHeightAll = {
                 type: "bar",
                 data: dataHeightAll,
                 options: optionsHeightAll
             };
+
             const configHeightGenders = {
                 type: "bar",
                 data: dataHeightGenders,
                 options: optionsHeightGenders
             };
+
             const configSleep = {
                 type: "bar",
                 data: dataSleep,
                 options: optionsSleep
             };
+
             const configTemperatureAll = {
                 type: "bar",
                 data: dataTemperatureAll,
                 options: optionsTemperatureAll
             };
+
             const configTemperatureGenders = {
                 type: "bar",
                 data: dataTemperatureGenders,
@@ -276,7 +281,7 @@
                 "嫌なことがあっても一晩寝ると忘れる": ["1", "2", "3", "4"],
                 "空想にふけるのが好きだ": ["1", "2", "3", "4"],
                 "他の人を褒めるのは得意だ": ["1", "2", "3", "4"]
-            }
+            };
 
             let genderArray = createArray("性別");
             let subjectArray = createArray("好きな教科は");
@@ -518,7 +523,7 @@
                     animateScale: true
                 },
                 plugins: plugins
-            }
+            };
 
             let genderSubtitle = createSubtitlePie(genderArray);
             let subjectSubtitle = createSubtitlePie(subjectArray);
@@ -716,7 +721,7 @@
                     },
                 },
                 plugins: plugins
-            }
+            };
 
             let getUpGoOutSubtitle = createSubtitleBubble(dataHash["早起きが苦手だ"], dataHash["週末に出かけるのが好きだ"]);
             let studyProgrammingSubtitle = createSubtitleBubble(dataHash["勉強が好きだ"], dataHash["プログラミングができる"]);
@@ -772,7 +777,7 @@
                 const path = "/values/";
                 const query = "?key=";
                 return uri.concat(id, path, sheet, query, key);
-            };
+            }
 
             function createRanks(limits) {
                 ranks = [];
@@ -879,7 +884,7 @@
                 let dupulicateIdxs = [];
                 if (array1.length === array2.length) {
                     for (let i = 0; i < array1.length; i++) {
-                        arrays.push([Number(array1[i]), Number(array2[i])])
+                        arrays.push([Number(array1[i]), Number(array2[i])]);
                     }
                 }
                 for (let i = 0; i < arrays.length; i++) {
